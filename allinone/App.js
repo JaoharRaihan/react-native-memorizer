@@ -1,45 +1,46 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity, Button, Alert } from 'react-native';
+import { Button, View ,Text, flexDirection} from 'react-native'
+import React from 'react'
 
 export default function App() {
-  const a=()=>console.log("Click on it");
-  const b=()=>console.log("YAHHH");
-  
-  
   return (
-    <SafeAreaView style={styles.container}>
-      <Text numberOfLines={1} >WE write all of core component here</Text>
-      <Image source={require("./assets/icon.png")}/>
-      <TouchableOpacity onPress={a}>
-      <Image source={{
-        uri:"https://picsum.photos/200/300",
-        width:200,
-        height:300,
+    <View style={{
+      backgroundColor: "#fff",
+      flex: 1,
+      flexDirection: "row",
+      justifyContent: "center",
+      alignItems: "center",
+      alignContent: "center",
+      flexWrap: "wrap",
+    }}>
+      <View style={{
+        backgroundColor: "gold",
+        width: "100",
+        height: "200",
+        alignSelf: "flex-start",
       }}/>
-      </TouchableOpacity>
-      <Button color="orage" title='Click HERE' onPress={b}/>
-      <Button color="red" title='click here' onPress={()=>alert("yahhh")}/>
-      <Button 
-      color="blue" 
-      title='click here' 
-      onPress={()=>Alert.alert("Answer it","How are you",
-      [{text:"Good", onPress:()=>console.log("Good")},
-      {text:"Bad", onPress:()=> console.log("Bad")},
-      ])}/>
-      <Button 
-      color="#fff"
-      title='Click here'
-      onPress={()=>Alert.prompt("Answer it","How are you",(text)=>console.log(text))}
-      />
-    </SafeAreaView>
-  );
+            <View style={{
+        backgroundColor: "red",
+        width: "100",
+        height: "400",
+        flexBasis:"200",
+        flexGrow: 1,
+        flexShrink:1,
+        flex: -1,
+        alignSelf:"flex-start",
+        top: "30",
+        right:"20",
+        position: "relative"
+      }}/>
+      <View style={{
+        backgroundColor: "tomato",
+        width: "100",
+        height: "600",
+        alignSelf:"flex-start",
+      }}>
+        <Button title='Click Here' onPress={()=>console.log("HI")
+        }/>
+        <Text>HIIII</Text>
+      </View>
+    </View>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
