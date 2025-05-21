@@ -1,17 +1,19 @@
 import React from 'react';
-import { Button, Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { Button, Image, ImageBackground, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 function Wscreen(props) {
     return (
-      <ImageBackground style={styles.background} source={require("../assets/1.webp")}>
+      <ImageBackground blurRadius={10} style={styles.background} source={require("../assets/1.webp")}>
         <Image style={styles.l} source={require("../assets/1.jpg")}/>
         <Text style={styles.t}>You looks great</Text>
-        <View style={styles.buttons1}>
-            <Button color={'red'} title='Log In'/>
-        </View>
-        <View style={styles.buttons2}>
-            <Button color={'tomato'} title='sign up'/>
-        </View>
+        <TouchableOpacity style={styles.buttons1}>
+            <Button onPress={()=> console.log("Tap")
+            } color={'red'} title='Log In'/>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttons2}>
+            <Button onPress={()=> console.log("ok")
+            } color={'tomato'} title='sign up'/>
+        </TouchableOpacity>
       </ImageBackground>
     );
 }
@@ -37,10 +39,12 @@ const styles = StyleSheet.create({
         top: "75",
     },
     t:{
+        fontSize: 25,
         position: "absolute",
         top: "400",
         alignItems: "center",
-        color: "#fff"
+        color: "#fff",
+        paddingVertical:20,
     }
 
 })

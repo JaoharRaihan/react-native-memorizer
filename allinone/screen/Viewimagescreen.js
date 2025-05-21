@@ -1,24 +1,29 @@
 import React from 'react';
 import { Button, Image, ImageBackground, Platform, SafeAreaView, StyleSheet, Text, View } from 'react-native';
-
+import {MaterialCommunityIcons} from '@expo/vector-icons'
+import colors from './config/colors';
 
 function Viewimagescreen(props) {
     return (
-<ImageBackground>
+<View style={styles.container}>
         <View style={styles.baci}>
-          <Image source={require("../assets/1.jpg")}/>
+          <Image resizeMode="contain" source={require("../assets/1.jpg")}/>
         <View style={styles.butt}>
-            <Button color={'tomato'} title='next'/>
+          <MaterialCommunityIcons name="close" color="White" size={30}/>
         </View>
         <View style={styles.buttt}>
-          <Button color={'tomato'} title='pre..'/>
+          <MaterialCommunityIcons name="trash-can-outline" color="white" size={30}/>
         </View>
         </View>
-</ImageBackground>        
+</View>        
     )
   }
 
 const styles = StyleSheet.create({
+    container:{
+      backgroundColor: colors.black,
+      flex: 1,
+    },
     butt:{
       position: "absolute",
       top: "65",
@@ -32,11 +37,8 @@ const styles = StyleSheet.create({
       paddingTop: Platform.OS==='android',
     },
     baci:{
-      flex:1,
-      alignContent: "center",
-      alignItems: "center",
-      width: "350",
-      height: "100"
-    }
+      width: "100%",
+      height: "100%",   
+    },
 });
 export default Viewimagescreen;
